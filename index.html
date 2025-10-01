@@ -278,7 +278,6 @@
             display: none;
         }
 
-        /* Custom Leaflet popup styling */
         .leaflet-popup-content-wrapper {
             background: rgba(15, 23, 42, 0.95);
             border: 1px solid #475569;
@@ -314,7 +313,6 @@
             font-weight: 500;
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -346,7 +344,7 @@
         <div class="sidebar">
             <div class="header">
                 <h1>Ireland Energy Grid</h1>
-                <p>Real electrical infrastructure & renewable energy data</p>
+                <p>Real electrical infrastructure & socio-demographic data</p>
             </div>
 
             <div class="control-section">
@@ -446,6 +444,63 @@
                     </div>
                     <div class="toggle-switch"></div>
                 </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Socio-Demographic Data</h3>
+                <div class="layer-item" data-layer="area-house-population">
+                    <div>
+                        <span class="layer-label">House Population</span>
+                        <span class="layer-status" id="status-area-house-population"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="layer-item" data-layer="crime">
+                    <div>
+                        <span class="layer-label">Crime Data</span>
+                        <span class="layer-status" id="status-crime"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="layer-item" data-layer="2015-area-census">
+                    <div>
+                        <span class="layer-label">2015 Census</span>
+                        <span class="layer-status" id="status-2015-area-census"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="layer-item" data-layer="2022-area-census">
+                    <div>
+                        <span class="layer-label">2022 Census</span>
+                        <span class="layer-status" id="status-2022-area-census"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Infrastructure & Boundaries</h3>
+                <div class="layer-item" data-layer="Road">
+                    <div>
+                        <span class="layer-label">Road Network</span>
+                        <span class="layer-status" id="status-Road"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="layer-item" data-layer="county">
+                    <div>
+                        <span class="layer-label">County Boundaries</span>
+                        <span class="layer-status" id="status-county"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="layer-item" data-layer="district">
+                    <div>
+                        <span class="layer-label">Municipal Districts</span>
+                        <span class="layer-status" id="status-district"></span>
+                    </div>
+                    <div class="toggle-switch"></div>
+                </div>
                 <div class="layer-item" data-layer="boundaries">
                     <div>
                         <span class="layer-label">Administrative Boundaries</span>
@@ -456,7 +511,7 @@
             </div>
 
             <div class="control-section">
-                <h3>Grid Analytics</h3>
+                <h3>Analytics</h3>
                 <div class="layer-item" data-layer="heat-map">
                     <div>
                         <span class="layer-label">Heat Map Analysis</span>
@@ -466,7 +521,41 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
 
+=======
+            <div class="stats-container">
+                <h3 style="font-size: 13px; font-weight: 600; margin-bottom: 12px; color: #60a5fa;">Real-Time Grid Stats</h3>
+                <div class="stat-item">
+                    <span class="stat-label">Frequency</span>
+                    <span class="stat-value" id="frequency">50.00 Hz</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">System Demand</span>
+                    <span class="stat-value" id="demand">4,234 MW</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Wind Generation</span>
+                    <span class="stat-value" id="windGen">1,847 MW</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Renewable %</span>
+                    <span class="stat-value" id="renewablePct">54%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Interconnector</span>
+                    <span class="stat-value" id="interconnector">+123 MW</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">CO₂ Intensity</span>
+                    <span class="stat-value" id="co2">357 g/kWh</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Last Update</span>
+                    <span class="stat-value" id="lastUpdate">--:--:--</span>
+                </div>
+            </div>
+>>>>>>> 58c1951 (updating data)
         </div>
 
         <div class="map-container">
@@ -539,7 +628,14 @@
                     'moyle': 'electric/Moyle Interconnector.geojson',
                     'heat-map': 'electric/Heat_Map_May.geojson',
                     'potential': 'potential/POTENTIA_HYDRO.geojson',
-                    'boundaries': 'administrative_boundaries/ADMIN_AREA_IRELAND.geojson'
+                    'boundaries': 'administrative_boundaries/ADMIN_AREA_IRELAND.geojson',
+                    'area-house-population': 'Sociao-demographic/Area_House_Population data.json',
+                    'crime': 'Sociao-demographic/Crime.json',
+                    '2015-area-census': 'Sociao-demographic/Small_Area_Census_2015.json',
+                    '2022-area-census': 'Sociao-demographic/Small_Area_Census_2022.json',
+                    'Road': 'Road.geojson',
+                    'county': 'county_boundary/County_Boudary.geojson',
+                    'district': 'Municipal_districts/Municipal_districts.geojson'
                 };
                 this.irelandBounds = [[51.222, -10.669], [55.636, -5.431]];
                 this.init();
@@ -552,55 +648,57 @@
                 this.showMessage('Grid visualization initialized', 'info');
             }
 
-initMap() {
-    // Initialize map centered on Ireland
-    this.map = L.map('map').setView([53.1424, -7.6921], 7);
+            initMap() {
+                this.map = L.map('map').setView([53.1424, -7.6921], 7);
 
-    // Define basemap layers
-    const esriImagery = L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles © Esri &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community',
-            maxZoom: 19
-        }
-    );
+                const esriImagery = L.tileLayer(
+                    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                        attribution: 'Tiles © Esri',
+                        maxZoom: 19
+                    }
+                );
 
-    const cartoDark = L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }
-    );
+                const esriReference = L.tileLayer(
+                    'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+                        attribution: 'Labels © Esri',
+                        maxZoom: 19
+                    }
+                );
 
-    const osm = L.tileLayer(
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }
-    );
+                const esriImageryWithLabels = L.layerGroup([esriImagery, esriReference]);
 
-    // Add Esri imagery as the default basemap
-    esriImagery.addTo(this.map);
+                const cartoDark = L.tileLayer(
+                    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '© OpenStreetMap © CARTO',
+                        subdomains: 'abcd',
+                        maxZoom: 19
+                    }
+                );
 
-    // Add layer control for switching basemaps
-    L.control.layers({
-        "Esri World Imagery": esriImagery,
-        "Carto Dark": cartoDark,
-        "OpenStreetMap": osm
-    }).addTo(this.map);
+                const osm = L.tileLayer(
+                    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }
+                );
 
-    // Add scale control
-    L.control.scale({
-        position: 'bottomleft',
-        metric: true,
-        imperial: false
-    }).addTo(this.map);
+                esriImageryWithLabels.addTo(this.map);
 
-    // Initialize layer groups for your datasets
-    Object.keys(this.dataFiles).forEach(layerType => {
-        this.layerGroups[layerType] = L.layerGroup();
-    });
-}
+                L.control.layers({
+                    "Esri Imagery + Labels": esriImageryWithLabels,
+                    "Carto Dark": cartoDark,
+                    "OpenStreetMap": osm
+                }).addTo(this.map);
 
+                L.control.scale({
+                    position: 'bottomleft',
+                    metric: true,
+                    imperial: false
+                }).addTo(this.map);
+
+                Object.keys(this.dataFiles).forEach(layerType => {
+                    this.layerGroups[layerType] = L.layerGroup();
+                });
+            }
 
             showMessage(message, type = 'info', duration = 3000) {
                 const errorEl = document.getElementById('errorMessage');
@@ -632,7 +730,6 @@ initMap() {
                 this.updateLayerStatus(layerType, 'loading', 'Loading...');
                 
                 try {
-                    // Try multiple potential paths for the file
                     const possiblePaths = [
                         filePath,
                         `./${filePath}`,
@@ -656,18 +753,21 @@ initMap() {
                     }
 
                     if (!response || !response.ok) {
-                        throw new Error(`Failed to load ${layerType}: File not found in any expected location`);
+                        throw new Error(`File not found: ${filePath}`);
                     }
                     
                     const data = await response.json();
                     
-                    if (!data.features || data.features.length === 0) {
-                        throw new Error(`No features found in ${layerType} data`);
+                    // Handle both GeoJSON and plain JSON formats
+                    if (!data.features && !Array.isArray(data)) {
+                        throw new Error(`Invalid data format in ${layerType}`);
                     }
+                    
+                    const featureCount = data.features ? data.features.length : (Array.isArray(data) ? data.length : 1);
                     
                     this.loadingLayers.delete(layerType);
                     this.errorLayers.delete(layerType);
-                    this.updateLayerStatus(layerType, 'loaded', `${data.features.length} features`);
+                    this.updateLayerStatus(layerType, 'loaded', `${featureCount} items`);
                     
                     return data;
                 } catch (error) {
@@ -690,7 +790,10 @@ initMap() {
                     'moyle': { color: '#8b5cf6', weight: 5, opacity: 1.0 },
                     'heat-map': { color: '#ef4444', weight: 2, opacity: 0.6, fillColor: '#ef4444', fillOpacity: 0.3 },
                     'potential': { color: '#06b6d4', weight: 3, opacity: 0.8, fillColor: '#06b6d4', fillOpacity: 0.2 },
-                    'boundaries': { color: '#EF4444', weight: 3, opacity: 0.8, fillColor: 'transparent', fillOpacity: 0 }
+                    'boundaries': { color: '#EF4444', weight: 3, opacity: 0.8, fillColor: 'transparent', fillOpacity: 0 },
+                    'Road': { color: '#94a3b8', weight: 2, opacity: 0.6 },
+                    'county': { color: '#f59e0b', weight: 2, opacity: 0.8, fillColor: 'transparent', fillOpacity: 0 },
+                    'district': { color: '#3b82f6', weight: 2, opacity: 0.7, fillColor: 'transparent', fillOpacity: 0 }
                 };
                 return styles[layerType] || { color: '#64748b', weight: 2, opacity: 0.7 };
             }
@@ -729,12 +832,11 @@ initMap() {
             }
 
             createPopupContent(feature, layerType) {
-                const props = feature.properties;
-                let title = layerType.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                const props = feature.properties || feature;
+                let title = layerType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
                 
                 let content = `<div class="popup-title">${title}</div>`;
                 
-                // Add relevant properties based on layer type
                 const relevantProps = Object.keys(props).filter(key => 
                     props[key] && 
                     key !== 'geometry' && 
@@ -766,6 +868,12 @@ initMap() {
                 if (!data) return;
 
                 try {
+                    // Handle plain JSON arrays (non-GeoJSON format)
+                    if (Array.isArray(data) || (!data.type && !data.features)) {
+                        this.showMessage(`${layerType} contains non-spatial data - skipping map visualization`, 'info', 3000);
+                        return;
+                    }
+
                     this.layers[layerType] = L.geoJSON(data, {
                         style: (feature) => {
                             if (feature.geometry.type.includes('LineString') || feature.geometry.type.includes('Polygon')) {
@@ -798,15 +906,14 @@ initMap() {
                         }
                     });
 
-                    // Add to layer group
                     this.layerGroups[layerType].addLayer(this.layers[layerType]);
 
-                    // If layer is active, add to map
                     if (this.activeLayerControls.has(layerType)) {
                         this.layerGroups[layerType].addTo(this.map);
                     }
 
-                    this.showMessage(`${layerType} layer loaded successfully (${data.features.length} features)`, 'success', 2000);
+                    const featureCount = data.features ? data.features.length : 0;
+                    this.showMessage(`${layerType} layer loaded (${featureCount} features)`, 'success', 2000);
                     
                 } catch (error) {
                     console.error(`Error creating layer ${layerType}:`, error);
@@ -816,7 +923,6 @@ initMap() {
             }
 
             setupEventListeners() {
-                // Layer toggle controls
                 document.querySelectorAll('.layer-item').forEach(item => {
                     item.addEventListener('click', async (e) => {
                         const layerType = item.dataset.layer;
@@ -825,14 +931,12 @@ initMap() {
                         const toggle = item.querySelector('.toggle-switch');
                         const isActive = this.activeLayerControls.has(layerType);
 
-                        // Prevent multiple clicks while loading
                         if (this.loadingLayers.has(layerType)) {
-                            this.showMessage(`${layerType} is still loading, please wait...`, 'info', 2000);
+                            this.showMessage(`${layerType} is still loading...`, 'info', 2000);
                             return;
                         }
 
                         if (isActive) {
-                            // Deactivate layer
                             this.activeLayerControls.delete(layerType);
                             toggle.classList.remove('active');
                             item.classList.remove('active');
@@ -842,16 +946,13 @@ initMap() {
                             }
                             this.updateLayerStatus(layerType, '', '');
                         } else {
-                            // Activate layer
                             this.activeLayerControls.add(layerType);
                             toggle.classList.add('active');
                             item.classList.add('active');
                             
-                            // Create layer if it doesn't exist
                             if (!this.layers[layerType]) {
                                 await this.createLayer(layerType);
                             } else {
-                                // Just add existing layer to map
                                 this.layerGroups[layerType].addTo(this.map);
                                 this.showMessage(`${layerType} layer activated`, 'success', 1500);
                             }
@@ -859,10 +960,9 @@ initMap() {
                     });
                 });
 
-                // Toolbar controls
                 document.getElementById('fitBounds').addEventListener('click', () => {
                     this.map.fitBounds(this.irelandBounds);
-                    this.showMessage('Map fitted to Ireland bounds', 'info', 1500);
+                    this.showMessage('Map fitted to Ireland', 'info', 1500);
                 });
 
                 document.getElementById('clearAll').addEventListener('click', () => {
@@ -874,46 +974,38 @@ initMap() {
                     this.showAllAvailableLayers();
                 });
 
-                // Map event listeners
                 this.map.on('zoomend', () => {
                     this.updateLayerVisibility();
-                });
-
-                this.map.on('moveend', () => {
-                    // Update URL with current map state (could be implemented)
                 });
             }
 
             clearAllLayers() {
                 this.activeLayerControls.clear();
                 
-                // Remove all layers from map
                 Object.values(this.layerGroups).forEach(layerGroup => {
                     this.map.removeLayer(layerGroup);
                 });
 
-                // Update UI
                 document.querySelectorAll('.layer-item').forEach(item => {
                     const toggle = item.querySelector('.toggle-switch');
                     toggle.classList.remove('active');
                     item.classList.remove('active');
                 });
 
-                // Clear status indicators
                 Object.keys(this.dataFiles).forEach(layerType => {
                     this.updateLayerStatus(layerType, '', '');
                 });
             }
 
             async showAllAvailableLayers() {
-                const confirmLoad = confirm('This will load all available layers. This may take some time and could impact performance. Continue?');
+                const confirmLoad = confirm('Load all layers? This may take time and impact performance.');
                 if (!confirmLoad) return;
 
                 this.showMessage('Loading all available layers...', 'info', 1000);
                 
+                let delay = 0;
                 for (const layerType of Object.keys(this.dataFiles)) {
                     if (!this.activeLayerControls.has(layerType) && !this.loadingLayers.has(layerType)) {
-                        // Activate the layer in UI
                         const item = document.querySelector(`[data-layer="${layerType}"]`);
                         if (item) {
                             const toggle = item.querySelector('.toggle-switch');
@@ -921,14 +1013,14 @@ initMap() {
                             toggle.classList.add('active');
                             item.classList.add('active');
                             
-                            // Load the layer (with a small delay to prevent overwhelming the browser)
                             setTimeout(() => {
                                 if (!this.layers[layerType]) {
                                     this.createLayer(layerType);
                                 } else {
                                     this.layerGroups[layerType].addTo(this.map);
                                 }
-                            }, Object.keys(this.activeLayerControls).indexOf(layerType) * 500);
+                            }, delay);
+                            delay += 500;
                         }
                     }
                 }
@@ -937,7 +1029,6 @@ initMap() {
             updateLayerVisibility() {
                 const zoom = this.map.getZoom();
                 
-                // Hide detailed layers at low zoom levels for performance
                 Object.entries(this.layerGroups).forEach(([layerType, layerGroup]) => {
                     if (this.activeLayerControls.has(layerType)) {
                         const shouldShow = this.shouldShowLayerAtZoom(layerType, zoom);
@@ -952,7 +1043,6 @@ initMap() {
             }
 
             shouldShowLayerAtZoom(layerType, zoom) {
-                // Define zoom thresholds for different layer types
                 const zoomThresholds = {
                     'kv400-lines': 5,
                     'kv275-lines': 6,
@@ -961,7 +1051,8 @@ initMap() {
                     'kv400-stations': 6,
                     'kv220-stations': 7,
                     'kv110-stations': 9,
-                    'boundaries': 5
+                    'boundaries': 5,
+                    'Road': 8
                 };
 
                 return zoom >= (zoomThresholds[layerType] || 5);
@@ -978,20 +1069,16 @@ initMap() {
                         });
                 };
 
-                // Update timestamp immediately
                 updateTime();
 
-                // Simulate real-time grid statistics with more realistic variations
                 setInterval(() => {
                     const baseFreq = 50.0;
                     const baseDemand = 4234;
                     const baseWind = 1847;
                     
-                    // Time-based variations (higher demand during day)
                     const hour = new Date().getHours();
                     const demandMultiplier = 0.8 + 0.4 * Math.sin((hour - 6) * Math.PI / 12);
                     
-                    // Add realistic variations with bounds
                     const frequency = Math.max(49.8, Math.min(50.2, 
                         baseFreq + (Math.random() - 0.5) * 0.1));
                     document.getElementById('frequency').textContent = frequency.toFixed(2) + ' Hz';
@@ -999,32 +1086,26 @@ initMap() {
                     const demand = Math.round(baseDemand * demandMultiplier * (0.9 + Math.random() * 0.2));
                     document.getElementById('demand').textContent = demand.toLocaleString() + ' MW';
                     
-                    // Wind varies more dramatically
                     const windCapacityFactor = 0.1 + Math.random() * 0.7;
                     const wind = Math.round(baseWind * windCapacityFactor);
                     document.getElementById('windGen').textContent = wind.toLocaleString() + ' MW';
                     
-                    // Calculate renewable percentage (including other renewables)
                     const otherRenewables = Math.round(200 + Math.random() * 300);
                     const totalRenewables = wind + otherRenewables;
                     const renewablePct = Math.round((totalRenewables / demand) * 100);
                     document.getElementById('renewablePct').textContent = Math.min(95, renewablePct) + '%';
                     
-                    // Interconnector flow (positive = import, negative = export)
                     const interconnectorFlow = Math.round(-300 + Math.random() * 600);
                     document.getElementById('interconnector').textContent = 
                         (interconnectorFlow > 0 ? '+' : '') + interconnectorFlow + ' MW';
                     
-                    // CO2 intensity based on renewable percentage
                     const co2Intensity = Math.round(600 - (renewablePct * 4.5));
                     document.getElementById('co2').textContent = Math.max(50, co2Intensity) + ' g/kWh';
                     
-                    // Update timestamp
                     updateTime();
                     
                 }, 5000);
 
-                // Update stats more frequently for frequency (grid frequency changes rapidly)
                 setInterval(() => {
                     const currentFreq = parseFloat(document.getElementById('frequency').textContent);
                     const newFreq = Math.max(49.8, Math.min(50.2, 
@@ -1033,20 +1114,16 @@ initMap() {
                 }, 1000);
             }
 
-            // Helper method to get layer statistics
             getLayerStats() {
-                const stats = {
+                return {
                     totalLayers: Object.keys(this.dataFiles).length,
                     loadedLayers: Object.keys(this.layers).length,
                     activeLayers: this.activeLayerControls.size,
                     errorLayers: this.errorLayers.size,
                     loadingLayers: this.loadingLayers.size
                 };
-                
-                return stats;
             }
 
-            // Method to export current map state (could be extended)
             exportMapState() {
                 const state = {
                     center: this.map.getCenter(),
@@ -1060,20 +1137,18 @@ initMap() {
             }
         }
 
-        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 window.gridMap = new IrelandGridMap();
                 
-                // Add some debugging helpers
                 window.getMapStats = () => window.gridMap.getLayerStats();
                 window.exportState = () => window.gridMap.exportMapState();
                 
                 console.log('Ireland Grid Map initialized successfully');
-                console.log('Available debugging: window.getMapStats(), window.exportState()');
+                console.log('Debug commands: window.getMapStats(), window.exportState()');
             } catch (error) {
-                console.error('Failed to initialize Ireland Grid Map:', error);
-                document.getElementById('errorMessage').textContent = 'Failed to initialize map: ' + error.message;
+                console.error('Failed to initialize:', error);
+                document.getElementById('errorMessage').textContent = 'Failed to initialize: ' + error.message;
                 document.getElementById('errorMessage').style.display = 'block';
             }
         });
